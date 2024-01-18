@@ -1,0 +1,116 @@
+<?php
+
+namespace {{ NAMESPACE }};
+
+use App\Interfaces\{{ CLASS_NAME }}Interface;
+use Illuminate\Support\Facades\DB;
+
+class {{ CLASS_NAME }}Repository implements {{ CLASS_NAME }}Interface
+{
+
+    /**
+    * Display a listing of the resource.
+    */
+    public function index(){
+        //
+    }
+
+
+    /**
+    * Show the form for creating a new resource.
+    */
+    public function create(){
+        //
+    }
+
+
+    /**
+    * Store a newly created resource in storage.
+    */
+    public function store(Mixed $request){
+
+         try
+        {
+            DB::beginTransaction();
+
+                //
+
+            DB::commit();
+
+            return to_route('route_name')->with('success' , __('flasher::messages.success'));
+
+        }
+        catch (\Exception $e) {
+
+            return back()->with('error', $e->getMessage());
+
+        }
+
+    }
+
+
+    /**
+    * Display the specified resource.
+    */
+    public function show(string $id){
+        //
+    }
+
+
+    /**
+    * Show the form for editing the specified resource.
+    */
+    public function edit(string $id){
+        //
+    }
+
+
+    /**
+    * Update the specified resource in storage.
+    */
+    public function update(Mixed $request, string $id){
+        try
+        {
+            DB::beginTransaction();
+
+                //
+
+            DB::commit();
+
+            return to_route('route_name')->with('success' , __('flasher::messages.success'));
+
+        }
+        catch (\Exception $e) {
+
+            return back()->with('error', $e->getMessage());
+
+        }
+
+    }
+
+
+    /**
+    * Remove the specified resource from storage.
+    */
+    public function destroy(string $id){
+
+        try
+        {
+            DB::beginTransaction();
+
+                //
+
+            DB::commit();
+
+            return to_route('route_name')->with('success' , __('flasher::messages.success'));
+
+        }
+        catch (\Exception $e) {
+
+            return back()->with('error', $e->getMessage());
+
+        }
+
+    }
+
+}
